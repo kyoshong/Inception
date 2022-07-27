@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=hyo
+    expose:
+      - "3306"
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - "80:80"
+  wordpress:
+    image: wordpress
+    restart: always
+    expose:
+      - "9000"
+    
