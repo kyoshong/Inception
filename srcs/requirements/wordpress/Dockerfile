@@ -34,7 +34,7 @@ RUN			mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php; \
 
 RUN			mkdir -p /run/php
 
-ENTRYPOINT	["/usr/bin/dumb-init"]
+ENTRYPOINT	["/usr/bin/dumb-init" , "--"]
 
 EXPOSE		9000
 

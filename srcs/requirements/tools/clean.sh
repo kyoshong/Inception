@@ -1,5 +1,5 @@
-docker stop i_mariadb i_wordpress i_nginx;
-docker rm i_mariadb i_wordpress i_nginx;
+docker stop mariadb wordpress nginx;
+docker rm mariadb wordpress nginx;
 docker rmi -f $(docker images -qa);
 docker volume rm $(docker volume ls -q);
-docker network rm inception 2 > /dev/null;
+docker network rm $(docker network ls -q) 2 > /dev/null;

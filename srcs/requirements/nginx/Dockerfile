@@ -16,7 +16,7 @@ RUN			openssl req -x509 -new -newkey rsa:2048 -nodes -days 365 \
 
 COPY		./conf/default /etc/nginx/sites-available/
 
-ENTRYPOINT	["/usr/bin/dumb-init"]
+ENTRYPOINT	["/usr/bin/dumb-init", "--"]
 
 EXPOSE		443
 

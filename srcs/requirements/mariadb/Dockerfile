@@ -17,7 +17,7 @@ COPY		./tools/init.sh /
 RUN			chmod 777 /init.sh
 
 
-ENTRYPOINT	[ "/usr/bin/dumb-init" ]
+ENTRYPOINT	[ "/usr/bin/dumb-init", "--" ]
 
 EXPOSE		3306
 
