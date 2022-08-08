@@ -1,0 +1,61 @@
+version: '3'
+
+networks:
+  inception:
+# volumes:
+#   dbdata: {}
+#   wpdata: {}
+volumes:
+  dbdata:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: 'home/hyospark/data/mariadb'
+  wpdata:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: 'home/hyospark/data/wordpress'
+
+services:
+  mariadb:
+    container_name: i_mariadb
+    build: ./requirements/mariadb
+    restart: always
+    expose:
+      - "3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - inception
+    tty: true
+
+  wordpress:
+    container_name: i_wordpress
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress
+    restart: always
+    expose:
+      - "9000"
+    volumes:
+      - wpdata:/var/www/html
+    networks:
+      - inception
+    tty: true
+
+  nginx:
+    container_name: i_nginx
+    build: ./requirements/nginx
+    depends_on:
+      - wordpress
+    restart: always
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    volumes:
+      - wpdata:/var/www/html
+    tty: true
