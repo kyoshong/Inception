@@ -6,10 +6,10 @@ RUN_COM = $(COMPOSE) -f $(SRC_DIR)/$(YML)
 all: up
 
 up:
-	$(RUN_COM) up -d 
+	$(RUN_COM) up -d
 
 build:
-	$(RUN_COM) build --no-cache 
+	$(RUN_COM) build
 
 restart:
 	$(RUN_COM) restart
