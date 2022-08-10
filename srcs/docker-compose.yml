@@ -1,26 +1,25 @@
 version: '3'
 
-networks:
-  inception:
-volumes:
-  dbdata: {}
-  wpdata: {}
+# networks:
+#   inception:
 # volumes:
-#   dbdata:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: 'home/hyospark/data/mariadb'
-#     name: db_volume
-#   wpdata:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: 'home/hyospark/data/wordpress'
-#     name: wp_volume
-
+#   dbdata: {}
+#   wpdata: {}
+volumes:
+  dbdata:
+    driver: local
+    driver_opts:
+      type: volume
+      o: bind
+      device: 'home/hyospark/data/mariadb'
+    name: db_volume
+  wpdata:
+    driver: local
+    driver_opts:
+      type: volume
+      o: bind
+      device: 'home/hyospark/data/wordpress'
+    name: wp_volume
 
 services:
   mariadb:
