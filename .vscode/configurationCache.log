@@ -1,1 +1,1 @@
-{"buildTargets":["all","build","clear","down","down_rmi","port","ps","restart","up","vb_setting"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["all","build","clean","down","down_rmi","ps","restart","up","vm_setting"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
